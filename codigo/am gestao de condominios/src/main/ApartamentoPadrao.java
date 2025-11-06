@@ -12,7 +12,7 @@ public class ApartamentoPadrao extends Apartamento {
 
     @Override
     public String getDescricaoTipo() {
-        return "Padrï¿½o";
+        return "Padrão";
     }
 
     public String getTipoArmarios() {
@@ -34,7 +34,7 @@ public class ApartamentoPadrao extends Apartamento {
     @Override
     public String toString() {
         String base = super.toString();
-        return base + "\n    Detalhes PadrÃ£o: [ArmÃ¡rios=" + tipoArmarios + ", Pisos=" + tipoPisos + "]" +
+        return base + "\n    Detalhes Padrão: [Armários=" + tipoArmarios + ", Pisos=" + tipoPisos + "]" +
                 "\n    Moradores:" + (moradores.isEmpty() ? " (Vazio)" : formatarMoradores());
     }
 

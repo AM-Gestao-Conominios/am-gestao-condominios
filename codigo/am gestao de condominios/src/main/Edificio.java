@@ -38,7 +38,7 @@ public class Edificio {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\nEdifÃ­cio [Numero=").append(numero)
+        sb.append("\nEdifício [Numero=").append(numero)
           .append(", Cor=").append(corPintura)
           .append(", Andares=").append(quantidadeAndares).append("]");
         

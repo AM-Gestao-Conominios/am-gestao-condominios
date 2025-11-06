@@ -34,7 +34,7 @@ public abstract class Apartamento {
     @Override
     public String toString() {
         return "\n  Apartamento [Numero=" + numero + ", Andar=" + andar + ", Tipo=" + getDescricaoTipo() +
-                ", Renda MÃ©dia=R$" + String.format("%.2f", calcularRendaMedia()) + "]";
+                ", Renda Média=R$" + String.format("%.2f", calcularRendaMedia()) + "]";
     }
 
     public int getNumero() {
