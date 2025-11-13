@@ -45,7 +45,7 @@ public class ApartamentoLuxo extends Apartamento {
     @Override
     public String toString() {
         String base = super.toString();
-        String detalhes = String.format("[Luminárias=%s, Geladeira=%b, Fogão=%b]",
+        String detalhes = String.format("\nLuminárias: %s\nGeladeira: %b\nFogão: %b",
                 modeloLuminarias, possuiGeladeiraEmbutida, possuiFogaoEmbutido);
         return base + "\n    Detalhes Luxo: " + detalhes +
                 "\n    Moradores:" + (moradores.isEmpty() ? " (Vazio)" : formatarMoradores());

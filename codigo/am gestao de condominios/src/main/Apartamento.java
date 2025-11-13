@@ -33,8 +33,8 @@ public abstract class Apartamento {
 
     @Override
     public String toString() {
-        return "\n  Apartamento [Numero=" + numero + ", Andar=" + andar + ", Tipo=" + getDescricaoTipo() +
-                ", Renda Média=R$" + String.format("%.2f", calcularRendaMedia()) + "]";
+        return "\n  Apartamento Número: " + numero + "\nAndar=" + andar + "\nTipo=" + getDescricaoTipo() +
+                "\nRenda Média=R$" + String.format("%.2f", calcularRendaMedia());
     }
 
     public int getNumero() {
@@ -43,6 +43,10 @@ public abstract class Apartamento {
 
     public int getAndar() {
         return andar;
+    }
+    
+    public void despejarMoradores() {
+        this.moradores.clear();
     }
 
     public List<Morador> getMoradores() {

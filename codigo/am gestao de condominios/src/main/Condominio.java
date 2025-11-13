@@ -42,7 +42,7 @@ public class Condominio {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("==============================================\n")
-          .append("CondomÃ­nio: ").append(nome).append(" (ID: ").append(id).append(")\n")
+          .append("Condomínio: ").append(nome).append(" (Número: ").append(id).append(")\n")
           .append("Local: ").append(cidade).append(" - ").append(bairro).append("\n")
           .append("==============================================");
           

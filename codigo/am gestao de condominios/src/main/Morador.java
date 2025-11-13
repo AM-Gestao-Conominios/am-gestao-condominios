@@ -32,6 +32,6 @@ public class Morador {
 
     @Override
     public String toString() {
-        return "  - Morador [Nome=" + nome + ", Cpf=" + cpf + ", Renda=R$" + renda + "]";
+        return "  - Morador: " + nome + "\nCPF: " + cpf + "\nRenda: R$" + renda;
     }
 }
