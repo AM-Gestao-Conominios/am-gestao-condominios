@@ -11,7 +11,7 @@ public class Main {
     private static ArrayList<Condominio> condominios = new ArrayList<>();
 
     public static void main(String[] args) {
-        System.out.println("### Iniciando Sistema de Gerenciamento de Condomínios (SGC) ###\n");
+        System.out.println("### Iniciando Sistema de Gerenciamento de Condominios (SGC) ###\n");
         
         int opcao = -1;
         while (opcao != 0) {
@@ -45,10 +45,10 @@ public class Main {
                         System.out.println("\nEncerrando o sistema...");
                         break;
                     default:
-                        System.out.println("Opção inválida!");
+                        System.out.println("Opcao invalida!");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Erro: Por favor, insira um número válido.");
+                System.out.println("Erro: Por favor, insira um numero valido.");
             } catch (Exception e) {
                 System.out.println("Ocorreu um erro: " + e.getMessage());
                 e.printStackTrace();
@@ -62,20 +62,20 @@ public class Main {
 
     private static void exibirMenu() {
         System.out.println("\n--- MENU PRINCIPAL ---");
-        System.out.println("1. Cadastrar Novo Condomínio");
-        System.out.println("2. Cadastrar Novo Edifício");
+        System.out.println("1. Cadastrar Novo Condominio");
+        System.out.println("2. Cadastrar Novo Edificio");
         System.out.println("3. Cadastrar Novo Apartamento");
         System.out.println("4. Cadastrar Novo Morador");
         System.out.println("5. Listar Estrutura Completa");
         System.out.println("6. Visualizar Detalhes de Elemento");
         System.out.println("7. Gerenciar Apartamento");
         System.out.println("0. Sair");
-        System.out.print("Escolha uma opção: ");
+        System.out.print("Escolha uma opcao: ");
     }
 
     private static void cadastrarCondominio() {
-        System.out.println("\n-- Cadastro de Condomínio --");
-        System.out.print("Número: ");
+        System.out.println("\n-- Cadastro de Condominio --");
+        System.out.print("Numero: ");
         int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
@@ -86,15 +86,15 @@ public class Main {
 
         Condominio c = new Condominio(id, nome, cidade, bairro);
         condominios.add(c);
-        System.out.println("Condomínio '" + nome + "' cadastrado com sucesso!");
+        System.out.println("Condominio '" + nome + "' cadastrado com sucesso!");
     }
 
     private static void cadastrarEdificio() {
-        System.out.println("\n-- Cadastro de Edifício --");
+        System.out.println("\n-- Cadastro de Edificio --");
         Condominio c = selecionarCondominio();
         if (c == null) return;
 
-        System.out.print("Número do Edifício: ");
+        System.out.print("NNumero do Edificio: ");
         int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Cor: ");
         String cor = scanner.nextLine();
@@ -103,7 +103,7 @@ public class Main {
 
         Edificio e = new Edificio(id, cor, totalAndares);
         c.adicionarEdificio(e);
-        System.out.println("Edifício Número " + id + " cadastrado no " + c.getNome() + "!");
+        System.out.println("Edificio Numero " + id + " cadastrado no " + c.getNome() + "!");
     }
 
     private static void cadastrarApartamento() {
@@ -114,36 +114,36 @@ public class Main {
         Edificio e = selecionarEdificio(c);
         if (e == null) return;
 
-        System.out.print("Tipo (1- Padrão, 2- Luxo): ");
+        System.out.print("Tipo (1- Padrao, 2- Luxo): ");
         int tipo = Integer.parseInt(scanner.nextLine());
-        
-        System.out.print("Número do Apartamento: ");
+
+        System.out.print("Numero do Apartamento: ");
         int num = Integer.parseInt(scanner.nextLine());
         System.out.print("Andar: ");
         int andar = Integer.parseInt(scanner.nextLine());
 
         Apartamento ap;
         if (tipo == 1) {
-            System.out.print("Tipo de Armário: ");
+            System.out.print("Tipo de Armario: ");
             String arm = scanner.nextLine();
             System.out.print("Tipo de Piso: ");
             String piso = scanner.nextLine();
             ap = factory.criarApartamentoPadrao(num, andar, arm, piso);
         } else if (tipo == 2) {
-            System.out.print("Modelo das Luminárias: ");
+            System.out.print("Modelo das Luminarias: ");
             String luz = scanner.nextLine();
             System.out.print("Possui Geladeira Embutida (true/false): ");
             boolean geladeira = Boolean.parseBoolean(scanner.nextLine());
-            System.out.print("Possui Fogão Embutido (true/false): ");
+            System.out.print("Possui Fogao Embutido (true/false): ");
             boolean fogao = Boolean.parseBoolean(scanner.nextLine());
             ap = factory.criarApartamentoLuxo(num, andar, luz, geladeira, fogao);
         } else {
-            System.out.println("Tipo inválido!");
+            System.out.println("Tipo invalido!");
             return;
         }
 
         e.adicionarApartamento(ap);
-        System.out.println("Apartamento " + num + " cadastrado no Edifício Número " + e.getNumero() + "!");
+        System.out.println("Apartamento " + num + " cadastrado no Edificio Numero " + e.getNumero() + "!");
     }
 
     private static void cadastrarMorador() {
@@ -178,7 +178,7 @@ public class Main {
     private static void listarEstruturaCompleta() {
         System.out.println("\n--- ESTRUTURA COMPLETA ---");
         if (condominios.isEmpty()) {
-            System.out.println("Nenhum condomínio cadastrado.");
+            System.out.println("Nenhum condominio cadastrado.");
             return;
         }
         for (Condominio c : condominios) {
@@ -188,19 +188,19 @@ public class Main {
 
     private static Condominio selecionarCondominio() {
         if (condominios.isEmpty()) {
-            System.out.println("Nenhum condomínio cadastrado. Cadastre um primeiro.");
+            System.out.println("Nenhum condominio cadastrado. Cadastre um primeiro.");
             return null;
         }
-        
-        System.out.println("Selecione um Condomínio:");
+
+        System.out.println("Selecione um Condominio:");
         for (int i = 0; i < condominios.size(); i++) {
             System.out.println((i + 1) + ". " + condominios.get(i).getNome());
         }
-        System.out.print("Opção: ");
+        System.out.print("Opcao: ");
         int idx = Integer.parseInt(scanner.nextLine()) - 1;
         
         if (idx < 0 || idx >= condominios.size()) {
-            System.out.println("Seleção inválida!");
+            System.out.println("Selecao invalida!");
             return null;
         }
         return condominios.get(idx);
@@ -208,19 +208,19 @@ public class Main {
 
     private static Edificio selecionarEdificio(Condominio c) {
         if (c.getEdificios().isEmpty()) {
-            System.out.println("Nenhum edifício cadastrado neste condomínio.");
+            System.out.println("Nenhum edificio cadastrado neste condominio.");
             return null;
         }
-        
-        System.out.println("Selecione um Edifício:");
+
+        System.out.println("Selecione um Edificio:");
         for (int i = 0; i < c.getEdificios().size(); i++) {
-            System.out.println((i + 1) + ". Número " + c.getEdificios().get(i).getNumero());
+            System.out.println((i + 1) + ". Numero " + c.getEdificios().get(i).getNumero());
         }
-        System.out.print("Opção: ");
+        System.out.print("Opcao: ");
         int idx = Integer.parseInt(scanner.nextLine()) - 1;
         
         if (idx < 0 || idx >= c.getEdificios().size()) {
-            System.out.println("Seleção inválida!");
+            System.out.println("Selecao invalida!");
             return null;
         }
         return c.getEdificios().get(idx);
@@ -228,19 +228,19 @@ public class Main {
 
     private static Apartamento selecionarApartamento(Edificio e) {
         if (e.getApartamentos().isEmpty()) {
-            System.out.println("Nenhum apartamento cadastrado neste edifício.");
+            System.out.println("Nenhum apartamento cadastrado neste edificio.");
             return null;
         }
 
         System.out.println("Selecione um Apartamento:");
         for (int i = 0; i < e.getApartamentos().size(); i++) {
-            System.out.println((i + 1) + ". Nº " + e.getApartamentos().get(i).getNumero());
+            System.out.println((i + 1) + ". Numero " + e.getApartamentos().get(i).getNumero());
         }
-        System.out.print("Opção: ");
+        System.out.print("Opcao: ");
         int idx = Integer.parseInt(scanner.nextLine()) - 1;
         
         if (idx < 0 || idx >= e.getApartamentos().size()) {
-            System.out.println("Seleção inválida!");
+            System.out.println("Selecao invalida!");
             return null;
         }
         return e.getApartamentos().get(idx);
@@ -248,10 +248,10 @@ public class Main {
 
     private static void visualizarElemento() {
         System.out.println("\n-- Visualizar Detalhes --");
-        System.out.println("1. Visualizar Condomínio");
-        System.out.println("2. Visualizar Edifício");
+        System.out.println("1. Visualizar Condominio");
+        System.out.println("2. Visualizar Edificio");
         System.out.println("3. Visualizar Apartamento");
-        System.out.print("Escolha uma opção: ");
+        System.out.print("Escolha uma opcao: ");
         int op = Integer.parseInt(scanner.nextLine());
 
         Condominio c;
@@ -278,7 +278,7 @@ public class Main {
                 if (ap != null) System.out.println(ap.toString());
                 break;
             default:
-                System.out.println("Opção inválida!");
+                System.out.println("Opcao invalida!");
         }
     }
 
@@ -302,7 +302,7 @@ public class Main {
                 op = Integer.parseInt(scanner.nextLine());
                 processarOpcaoApartamento(op, ap);
             } catch (NumberFormatException ex) {
-                System.out.println("Erro: Insira um número.");
+                System.out.println("Erro: Insira um numero.");
                 op = -1;
             }
         }
@@ -314,16 +314,16 @@ public class Main {
         System.out.println("2. Despejar Moradores");
         if (ap instanceof ApartamentoPadrao) {
             System.out.println("3. Trocar Piso");
-            System.out.println("4. Trocar Armários");
+            System.out.println("4. Trocar Armarios");
         } 
         else if (ap instanceof ApartamentoLuxo) {
             ApartamentoLuxo al = (ApartamentoLuxo) ap;
             System.out.println("3. Instalar/Remover Geladeira (Atual: " + al.isPossuiGeladeiraEmbutida() + ")");
-            System.out.println("4. Instalar/Remover Fogão (Atual: " + al.isPossuiFogaoEmbutido() + ")");
+            System.out.println("4. Instalar/Remover Fogao (Atual: " + al.isPossuiFogaoEmbutido() + ")");
         }
         
         System.out.println("0. Voltar ao Menu Principal");
-        System.out.print("Escolha uma opção: ");
+        System.out.print("Escolha uma opcao: ");
     }
 
     private static void processarOpcaoApartamento(int op, Apartamento ap) {
@@ -346,28 +346,28 @@ public class Main {
                     al.setPossuiGeladeiraEmbutida(!al.isPossuiGeladeiraEmbutida());
                     System.out.println("Status da geladeira atualizado para: " + al.isPossuiGeladeiraEmbutida());
                 } else {
-                    System.out.println("Opção inválida para este tipo de apartamento.");
+                    System.out.println("Opcao invalida para este tipo de apartamento.");
                 }
                 break;
             case 4:
                 if (ap instanceof ApartamentoPadrao) {
-                    System.out.print("Novo tipo de armário: ");
+                    System.out.print("Novo tipo de armario: ");
                     String novoArmario = scanner.nextLine();
                     ((ApartamentoPadrao) ap).setTipoArmarios(novoArmario);
-                    System.out.println("Armários atualizados!");
+                    System.out.println("Armarios atualizados!");
                 } else if (ap instanceof ApartamentoLuxo) {
                     ApartamentoLuxo al = (ApartamentoLuxo) ap;
                     al.setPossuiFogaoEmbutido(!al.isPossuiFogaoEmbutido());
-                    System.out.println("Status do fogão atualizado para: " + al.isPossuiFogaoEmbutido());
+                    System.out.println("Status do fogao atualizado para: " + al.isPossuiFogaoEmbutido());
                 } else {
-                    System.out.println("Opção inválida para este tipo de apartamento.");
+                    System.out.println("Opcao invalida para este tipo de apartamento.");
                 }
                 break;
             case 0:
                 System.out.println("Voltando ao menu principal...");
                 break;
             default:
-                System.out.println("Opção inválida!");
+                System.out.println("Opcao invalida!");
         }
     }
 }
